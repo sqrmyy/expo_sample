@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default class App extends React.Component {
   //stateを定義
   state = {
     name: 'hoge',
     age: 33,
+    text1: 'placeholder',
   };
   render() {
     return (
@@ -17,6 +18,12 @@ export default class App extends React.Component {
         <Button title='Change Name' onPress={this.changeName} />
         <Hello to='Bob' />
         <Hello to='Tom' />
+        <Text>入力してください</Text>
+        <TextInput
+          value={this.state.text1}
+          onChangeText={(t) => this.setState({ text1: t })}
+        />
+        <Button title='Entry' onPress={this.entry} />
       </View>
     );
   }
@@ -30,6 +37,10 @@ export default class App extends React.Component {
     this.setState({
       name: 'Foo',
     });
+  };
+  //アラート表示
+  entry = () => {
+    alert(this.state.text1);
   };
 }
 
