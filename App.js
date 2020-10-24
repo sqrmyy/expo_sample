@@ -12,18 +12,17 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
-        <Button
-          title='Click Me'
-          onPress={() => {
-            alert('アラート表示');
-            console.log('コンソールログ');
-          }}
-        />
+        <Button title='Click Me' onPress={this.showAlert} />
         <Text>こんにちは。{this.state.name}さん。</Text>
         <Button title='Change Name' onPress={this.changeName} />
       </View>
     );
   }
+  //アラート表示
+  showAlert = () => {
+    alert('アラート表示');
+    console.log('コンソールログ');
+  };
   //name変更
   changeName = () => {
     this.setState({
