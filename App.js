@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Card, Button, Input } from 'react-native-elements';
 
 export default class App extends React.Component {
   //stateを定義
@@ -24,6 +25,23 @@ export default class App extends React.Component {
           onChangeText={(t) => this.setState({ text1: t })}
         />
         <Button title='Entry' onPress={this.entry} />
+        <Card title='入力してね'>
+          <Input
+            value={this.state.text1}
+            label='text1'
+            errorMessage='error'
+            onChangeText={(t) => {
+              this.setState({ text1: t });
+            }}
+          />
+          <Button
+            title='Entry'
+            style={{ width: 300 }}
+            borderRadius={30}
+            onPress={this.entry}
+          />
+        </Card>
+        <StatusBar style='auto' />
       </View>
     );
   }
