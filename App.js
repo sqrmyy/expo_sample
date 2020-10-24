@@ -15,6 +15,8 @@ export default class App extends React.Component {
         <Button title='Click Me' onPress={this.showAlert} />
         <Text>こんにちは。{this.state.name}さん。</Text>
         <Button title='Change Name' onPress={this.changeName} />
+        <Hello to='Bob' />
+        <Hello to='Tom' />
       </View>
     );
   }
@@ -39,3 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+function Hello(props) {
+  return <Text>Hello. {props.to}!</Text>;
+}
